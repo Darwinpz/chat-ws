@@ -1,0 +1,49 @@
+
+<div class="container" >
+
+    <div class="row align-items-center justify-content-center vh-100">
+
+        <div class="col col-md-12 col-lg-7 col-sm-12 text-center">
+
+            <img src="/img/ws.png" class="w-50">
+
+        </div>
+        
+        <div class="col col-md-12 col-lg-5 col-sm-12">
+
+            <h5>{{message}}</h5>
+
+            <div class="card p-3" style="box-shadow: 0 2px 10px rgba(0,0,0,.075);">
+
+                <h4 class="text-center"><b>Ingreso a Mensajería</b></h4>
+
+                <div class="card-body">
+
+                    <form class="row g-3" method="post" action="/login">
+
+                        <div class="col-md-12">
+                            <input type="text" class="form-control fs-5" name="identificacion" placeholder="Cédula o Identificación" value="{{usuario}}" required>
+                        </div>
+                        <div class="col-md-12">
+
+                            <input type="password" class="form-control fs-5" name="clave" placeholder="Clave de seguridad" value="" required>
+                        </div>
+
+                        <div class="d-grid gap-2">
+                            <button class="btn btn-primary btn-block fs-4" type="submit">Iniciar Sesión</button>
+                        </div>
+
+                        <hr>
+
+                    </form>
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

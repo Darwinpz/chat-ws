@@ -1,0 +1,20 @@
+{
+  "name": "chat-ws",
+  "version": "1.0.0",
+  "description": "Esta es una app de Chat Similar a Ws",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon ./index.js"
+  },
+  "keywords": [],
+  "author": "Darwin Pilaloa",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "express-handlebars": "^6.0.6",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}

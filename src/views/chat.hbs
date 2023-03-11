@@ -1,0 +1,137 @@
+<div class="row mt-3" style="margin: auto;">
+
+
+    <div class="col col-md-4 col-sm-4 col-lg-4">
+
+        <div class="card">
+
+            <div class="card-header">
+
+                <div class="row" style="align-items: center;">
+
+                    <div class="col-10">
+
+                        <div class="usuario" style="width: 50px;height: 50px;padding: 2px; margin-right: 15px;">
+                            <img class="img-fluid img-rounded" src="/img/user.png">
+                        </div>
+
+                    </div>
+
+                    <div class="col text-end">
+                        <div class="dropdown">
+                            <a class="dropdown" style="cursor: pointer; color: gray; font-size: 20px;"
+                                data-bs-toggle="dropdown" aria-expanded="false"><i
+                                    class="fa-solid fa-ellipsis-vertical"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" type="button"><i class="fas fa-sign-out"></i> Cerrar
+                                        Sesión</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="card-body">
+
+                <div id="zona-usuarios" class=" mb-2" style="height: 608px;  max-height: 608px;">
+
+                    <ul id="usuarios" class="mt-2" style="list-style: none; margin: 0; padding: 0;">
+
+
+                    </ul>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="col col-md-8 col-sm-8 col-lg-8">
+
+        <div class="card">
+
+            <div class="card-header">
+
+                <div class="row" style="align-items: center;">
+
+                    <div class="col-10">
+                        
+                        <div class="usuario-chat" style="width: 50px;height: 50px;padding: 2px; margin-right: 15px;">
+                            <img class="img-fluid img-rounded" src="/img/user.png">
+                        </div>
+
+                    </div>
+
+                    <div class="col text-end">
+                        <div class="dropdown">
+                            <a class="dropdown" style="cursor: pointer; color: gray; font-size: 20px;"
+                                id="dropdownMessenger" data-bs-toggle="dropdown" aria-expanded="false"><i
+                                    class="fa-solid fa-ellipsis-vertical"></i></a>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMessenger">
+                                <li><a class="dropdown-item" type="button"><i class="fas fa-info-circle"></i> Bloquear
+                                        Usuario</a></li>
+                                <li><a class="dropdown-item" type="button"><i class="fas fa-trash"></i> Vaciar Chat</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div id="zona-chat"
+                style="height: 600px; overflow-y: scroll; max-height: 600px;background-color: #e4e0d7; background-image: url('/img/fondo.png');">
+
+                <ul id="chat" class="m-2" style="list-style: none; margin: 0; padding: 0;">
+
+                    <div
+                        style="box-shadow: 0 2px 10px rgba(0,0,0,.075); display:inline-block;clear: both;padding: 7px;border-radius: 10px;background: #fff;float: left;margin-left:10px;max-width: 500px;"
+                        class="mb-2"
+                        >
+                        <li class="him">
+                            Hola este es un mensaje de prueba xd <span style="font-size: 12px;"
+                                class="text-muted text-end">23:22 p.m.</span></li>
+                    </div>
+
+
+                    <div
+                        style="box-shadow: 0 2px 10px rgba(0,0,0,.075);display:inline-block;clear: both;padding: 7px;border-radius: 10px;float: right;background: #d0ffc8;margin-right:10px; max-width: 500px;"
+                        class="mb-2"
+                        >
+                        <li class="me">
+                            Hola que tal!. <span style="font-size: 12px;" class="text-muted text-end">23:22 p.m.</span>
+                        </li>
+                    </div>
+
+                </ul>
+
+            </div>
+
+            <div class="card-footer">
+
+                <form id="form_message">
+
+                    <div class="input-group">
+
+                        <input type="text" class="form-control border-dark" id="message"
+                            placeholder="Escribe un mensaje aquí">
+
+                        <button class="btn btn-primary border-dark"><i class="fas fa-paper-plane"></i></button>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
