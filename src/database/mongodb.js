@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/chat-ws',
+mongoose.connect('mongodb://127.0.0.1/chat-ws',
     {
         useNewUrlParser: true, useUnifiedTopology: true
     })
