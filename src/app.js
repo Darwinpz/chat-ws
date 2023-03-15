@@ -37,5 +37,8 @@ app.use(express.static(path.join(__dirname,"public")));
 //DEFINICION DE RUTAS
 require("./routes/rutas")(app);
 
+//CONEXION A LA BD MONGODB
+require("./database/mongodb")
+
 //EXPORTACION DE MODULO APP
 module.exports = app;
