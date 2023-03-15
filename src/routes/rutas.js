@@ -1,4 +1,4 @@
-
+const Ctrl_usuario = require ("../controllers/usuario")
 
 
 module.exports = (app) =>{
@@ -29,5 +29,7 @@ module.exports = (app) =>{
 
         res.render("chat.hbs");
     })
+
+    app.get("/registro",Ctrl_usuario.save_usuario);
 
 }
