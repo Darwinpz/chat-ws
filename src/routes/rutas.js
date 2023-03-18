@@ -16,14 +16,7 @@ module.exports = (app) =>{
 
     })
 
-    app.post("/login",(req,res)=>{
-
-        const {identificacion, clave} = req.body
-
-        res.render("login.hbs", {message:"Error al iniciar sesion", usuario:identificacion})
-
-
-    })
+    app.post("/login",ctrl_usuario.login)
 
     app.get("/chat", (req,res)=>{
 
@@ -31,6 +24,7 @@ module.exports = (app) =>{
     })
 
 
-    app.get("/registro",ctrl_usuario.save_usuario);
+    app.get("/registro",ctrl_usuario.registro);
+    app.post("/registro",ctrl_usuario.save_usuario);
 
 }

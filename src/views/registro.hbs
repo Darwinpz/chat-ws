@@ -1,0 +1,47 @@
+<div class="container">
+
+    <a href="/login" type="button" class="btn btn-success mt-3" style="position: absolute;"><i class="fas fa-arrow-left"></i> Volver</a>
+
+    <div class="row align-items-center justify-content-center vh-100">
+
+        <div class="col col-lg-6">
+
+            <div class="card">
+
+                <div class="card-header text-center" >
+
+                    <h5>Registro de Usuario</h5>
+
+                </div>
+
+                <div class="card-body">
+
+                    <form class="row g-3" method="post" action="/registro">
+
+                        <div class="col-md-12">
+                            <input type="text" class="form-control fs-5" name="usuario"
+                                placeholder="Identificación" value="{{usuario}}" required>
+                        </div>
+                        <div class="col-md-12">
+
+                            <input type="password" class="form-control fs-5" name="clave"
+                                placeholder="Clave de seguridad" value="" required>
+                        </div>
+
+                        <div class="d-grid gap-2">
+                            <button class="btn btn-primary btn-block fs-4" type="submit">Registrarse</button>
+                        </div>
+
+                    </form>
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+</div>
