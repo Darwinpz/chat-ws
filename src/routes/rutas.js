@@ -12,7 +12,13 @@ module.exports = (app) =>{
 
     app.get("/login",(req,res)=>{
 
-        res.render("login.hbs");
+        if(req.session._id !=null){
+
+            res.redirect("/chat")
+        }else{
+
+            res.render("login.hbs");
+        }
 
     })
 
@@ -20,7 +26,13 @@ module.exports = (app) =>{
 
     app.get("/chat", (req,res)=>{
 
-        res.render("chat.hbs");
+        if(req.session._id != null){
+
+            res.render("chat.hbs");
+        }else{
+            res.redirect('/login')
+        }
+        
     })
 
 

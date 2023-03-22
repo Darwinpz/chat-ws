@@ -2,47 +2,49 @@ const Usuario = require("../models/users")
 
 const Ctrl = {}
 
-Ctrl.registro = (req,res)=>{
+Ctrl.registro = (req, res) => {
 
     res.render("registro.hbs");
 
 }
 
-Ctrl.save_usuario = async (req, res)=>{
+Ctrl.save_usuario = async (req, res) => {
 
-    const {usuario, clave} = req.body;
+    const { usuario, clave } = req.body;
 
     const user = new Usuario({
-        nombre : usuario,
-        clave : clave
+        nombre: usuario,
+        clave: clave
     })
 
     await user.save();
 
-    res.render("registro.hbs", {message:"Usuario Creado Correctamente"})
+    res.render("registro.hbs", { message: "Usuario Creado Correctamente" })
 
 
 }
 
 
-Ctrl.login = async (req,res) => {
+Ctrl.login = async (req, res) => {
 
-    const {usuario, clave} = req.body;
+    const { usuario, clave } = req.body;
 
-    const existe = await Usuario.findOne({"nombre":usuario})
+    const existe = await Usuario.findOne({ $and: [{ 'nombre': usuario, "clave": clave }] })
 
-    if (existe){
+    if (existe) {
 
-       res.redirect("/chat")
+        req.session._id = existe._id;
+        req.session.usuario = existe.nombre;
+        res.redirect("/chat")
 
-    }else{
-        res.render("login.hbs", {message:"Usuario o Clave incorrecto"})
+    } else {
+        res.render("login.hbs", { message: "Usuario o Clave incorrecto" })
     }
 
 }
 
 
-Ctrl.update_user = (req, res) =>{
+Ctrl.update_user = (req, res) => {
 
 }
 

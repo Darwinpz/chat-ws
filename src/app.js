@@ -3,12 +3,24 @@ const express = require("express")
 const exphbs = require("express-handlebars")
 const morgan = require("morgan")
 const path = require("path")
+const session = require('express-session');
+const nocache = require("nocache");
 
 //INSTANCIANDO EL SERVIDOR
 const app = express()
 
 //DEFINICION DE PUERTO
 app.set("port",3000)
+
+
+//SESION
+var sess = {
+    secret: 'hola',
+    resave: false,
+    saveUninitialized: true
+}
+app.use(session(sess))
+app.use(nocache())
 
 //DEFINICION DEL DIRECTORIO VIEWS
 app.set("views", path.join(__dirname,"views"));
