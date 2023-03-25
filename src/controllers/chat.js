@@ -1,8 +1,19 @@
+const Usuario = require("../models/users")
+
 const Ctrl = {}
 
-Ctrl.vista_chat = (req, res) => {
+Ctrl.vista_chat = async (req, res) => {
 
-    (req.session._id != null) ? res.render("chat.hbs") : res.redirect("/login");
+    if (req.session._id != null) {
+
+        const user = await Usuario.findOne({ '_id': req.session._id })
+
+        res.render("chat.hbs", user )
+
+    } else {
+        res.redirect("/login");
+
+    }
 
 }
 

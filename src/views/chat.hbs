@@ -1,4 +1,4 @@
-<div class="row mt-3" style="margin: auto;">
+<div class="row align-items-center justify-content-center vh-100" style="margin: auto;">
 
     <div class="col col-md-4 col-sm-4 col-lg-4">
 
@@ -8,22 +8,41 @@
 
                 <div class="row" style="align-items: center;">
 
-                    <div class="col-10">
+                    <div class="col col-lg-10 col-sm-12">
 
-                        <div class="usuario" style="width: 50px;height: 50px;padding: 2px; margin-right: 15px;">
-                            <img class="img-fluid img-rounded" src="/img/user.png">
-                            <p style="position: absolute;">Nombre</p>
+                        <div class="d-flex flex-nowrap mb-2 align-items-center">
+
+                            <div class="usuario" style="width: 50px;height: 50px;padding: 2px; margin-right: 15px;">
+                                <img class="img-fluid img-rounded" style=" height: 100%;width: 100%;"
+                                    src="/img/user.png" alt="Usuario">
+                            </div>
+
+                            <div class="usuario-info">
+                                <span class="usuario-nombre"
+                                    style="display: block; font-size: 14px;"><strong>{{nombre}}</strong> ({{username}})
+                                </span>
+                                <p style="display: none;" id="usuario-id">{{_id}}</p>
+                                <span class="usuario-status" style="display: block; margin-top: 4px;font-size: 11px;">
+                                    <i class="fa fa-circle"
+                                        style="color: #5cb85c; margin-right: 4px;font-size: 11px;"></i>
+                                    <span>Online</span>
+                                </span>
+                            </div>
+
                         </div>
 
                     </div>
 
-                    <div class="col text-end">
+                    <div class="col text-end" style="position: absolute; padding-right: 20px;">
                         <div class="dropdown">
                             <a class="dropdown" style="cursor: pointer; color: gray; font-size: 20px;"
                                 data-bs-toggle="dropdown" aria-expanded="false"><i
                                     class="fa-solid fa-ellipsis-vertical"></i></a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="/salir" type="button"><i class="fas fa-sign-out"></i> Cerrar
+                                <li><a class="dropdown-item" type="button"><i class="fas fa-user"></i>
+                                        Perfil</a></li>
+                                <li><a class="dropdown-item" href="/salir" type="button"><i class="fas fa-sign-out"></i>
+                                        Cerrar
                                         Sesión</a></li>
                             </ul>
                         </div>
@@ -35,10 +54,11 @@
 
             <div class="card-body">
 
-                <div id="zona-usuarios" class=" mb-2" style="height: 608px;  max-height: 608px;">
+                <div id="zona-usuarios" class=" mb-2" style="height: 613px;  max-height: 615px;">
 
-                    <ul id="usuarios" class="mt-2" style="list-style: none; margin: 0; padding: 0;">
+                    <ul id="usuarios" style="list-style: none; margin: 0; padding: 0;">
 
+                        
 
                     </ul>
 
@@ -53,22 +73,40 @@
 
     <div class="col col-md-8 col-sm-8 col-lg-8">
 
-        <div class="card" style="box-shadow: 0 2px 10px rgba(0,0,0,.075);">
+        <div class="card" style="box-shadow: 0 2px 10px rgba(0,0,0,.075);  display: none;" id="chat-ventana">
 
             <div class="card-header">
 
                 <div class="row" style="align-items: center;">
 
-                    <div class="col-10">
-                        
-                        <div class="usuario-chat" style="width: 50px;height: 50px;padding: 2px; margin-right: 15px;">
-                            <img class="img-fluid img-rounded" src="/img/user.png">
-                            
+                    <div class="col col-lg-10 col-sm-12">
+
+                        <div class="d-flex flex-nowrap mb-2 align-items-center">
+
+                            <div class="usuario-receptor"
+                                style="width: 50px;height: 50px;padding: 2px; margin-right: 15px;">
+                                <img class="img-fluid img-rounded" style=" height: 100%;width: 100%;"
+                                    src="/img/user.png" alt="Usuario">
+                            </div>
+
+                            <div class="usuario-receptor-info">
+                                <span class="usuario-receptor-nombre"
+                                    style="display: block; font-size: 14px;"><strong>{{nombre}}</strong> ({{username}})
+                                </span>
+                                <p style="display: none;" id="usuario-receptor-id">{{_id}}</p>
+                                <span class="usuario-receptor-status"
+                                    style="display: block; margin-top: 4px;font-size: 11px;">
+                                    <i class="fa fa-circle"
+                                        style="color: #5cb85c; margin-right: 4px;font-size: 11px;"></i>
+                                    <span>Online</span>
+                                </span>
+                            </div>
+
                         </div>
 
                     </div>
 
-                    <div class="col text-end">
+                    <div class="col text-end" style="position: absolute; padding-right: 20px;">
                         <div class="dropdown">
                             <a class="dropdown" style="cursor: pointer; color: gray; font-size: 20px;"
                                 id="dropdownMessenger" data-bs-toggle="dropdown" aria-expanded="false"><i
@@ -91,20 +129,16 @@
 
                 <ul id="chat" class="m-2" style="list-style: none; margin: 0; padding: 0;">
 
-                    <div
-                        style="box-shadow: 0 2px 10px rgba(0,0,0,.075); display:inline-block;clear: both;padding: 7px;border-radius: 10px;background: #fff;float: left;margin-left:10px;max-width: 500px;"
-                        class="mb-2"
-                        >
+                    <div style="box-shadow: 0 2px 10px rgba(0,0,0,.075); display:inline-block;clear: both;padding: 7px;border-radius: 10px;background: #fff;float: left;margin-left:10px;max-width: 500px;"
+                        class="mb-2">
                         <li class="him">
                             Hola este es un mensaje de prueba xd <span style="font-size: 12px;"
                                 class="text-muted text-end">23:22 p.m.</span></li>
                     </div>
 
 
-                    <div
-                        style="box-shadow: 0 2px 10px rgba(0,0,0,.075);display:inline-block;clear: both;padding: 7px;border-radius: 10px;float: right;background: #d0ffc8;margin-right:10px; max-width: 500px;"
-                        class="mb-2"
-                        >
+                    <div style="box-shadow: 0 2px 10px rgba(0,0,0,.075);display:inline-block;clear: both;padding: 7px;border-radius: 10px;float: right;background: #d0ffc8;margin-right:10px; max-width: 500px;"
+                        class="mb-2">
                         <li class="me">
                             Hola que tal!. <span style="font-size: 12px;" class="text-muted text-end">23:22 p.m.</span>
                         </li>
@@ -131,8 +165,27 @@
 
             </div>
 
+
         </div>
+
+        <div class="card" style="box-shadow: 0 2px 10px rgba(0,0,0,.075);" id="chat-inicio">
+
+            <div class="col col-md-12 col-lg-12 col-sm-12 text-center">
+
+                <h3 class="mt-3"><strong>¡BIENVENIDO!</strong></h3>
+
+                <img src="/img/ws.png" class="img-fluid">
+
+                <h4 class="mt-3 mb-3">Chat usando NodeJS</h4>
+
+            </div>
+
+        </div>
+
 
     </div>
 
 </div>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/chat.js"></script>
