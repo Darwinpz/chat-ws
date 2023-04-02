@@ -10,43 +10,67 @@ Ctrl.registro = (req, res) => {
 
 Ctrl.save_usuario = async (req, res) => {
 
-    const { usuario, clave } = req.body;
+    const { nombre, username, clave } = req.body;
 
-    const user = new Usuario({
-        nombre: usuario,
-        clave: clave
-    })
+    const existe = await Usuario.findOne({ 'username': username })
 
-    await user.save();
+    if (existe) {
 
-    res.render("registro.hbs", { message: "Usuario Creado Correctamente" })
+        res.render("registro.hbs", { message: "Usuario Existente" })
 
+    } else {
+
+        const user = new Usuario({
+            nombre,
+            username,
+            clave
+        })
+
+        user.clave = await user.encryptPassword(clave)
+        await user.save();
+
+        res.render("registro.hbs", { message: "Usuario Creado Correctamente" })
+
+    }
 
 }
 
+Ctrl.vista_login = (req, res) => {
+
+    (req.session._id != null) ? res.redirect("chat") : res.render("login.hbs");
+
+}
 
 Ctrl.login = async (req, res) => {
 
     const { usuario, clave } = req.body;
 
-    const existe = await Usuario.findOne({ $and: [{ 'nombre': usuario, "clave": clave }] })
+    const existe = await Usuario.findOne({ 'username': usuario })
 
     if (existe) {
 
-        req.session._id = existe._id;
-        req.session.usuario = existe.nombre;
-        res.redirect("/chat")
+        if (await existe.matchPassword(clave)) {
+
+            req.session._id = existe._id;
+            req.session.usuario = existe.nombre;
+            res.redirect("/chat")
+
+        }else{
+            res.render("login.hbs", { message: "Usuario o Clave incorrecto" })
+        }
 
     } else {
-        res.render("login.hbs", { message: "Usuario o Clave incorrecto" })
+        res.render("login.hbs", { message: "Usuario no existente" })
     }
 
 }
 
 
-Ctrl.update_user = (req, res) => {
+Ctrl.salir = async (req, res) => {
 
-}
+    req.session.destroy();
+    res.redirect('/login');
+};
 
 
 module.exports = Ctrl;

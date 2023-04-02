@@ -12,6 +12,9 @@ const app = express()
 //DEFINICION DE PUERTO
 app.set("port",3000)
 
+//SOCKETS
+//require("./controllers/sockets")(io_server);
+
 
 //SESION
 var sess = {
