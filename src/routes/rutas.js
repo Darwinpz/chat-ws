@@ -16,4 +16,6 @@ module.exports = (app) =>{
 
     app.get("/salir",ctrl_usuario.salir);
 
+    app.post("/buscar_usuario",ctrl_usuario.buscar_usuario);
+
 }

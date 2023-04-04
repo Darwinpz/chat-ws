@@ -35,6 +35,17 @@ Ctrl.save_usuario = async (req, res) => {
 
 }
 
+
+Ctrl.buscar_usuario = async(req, res) =>{
+
+    const { id } = req.body;
+
+    const usuario = await Usuario.findOne({ '_id': id }).select("-clave")
+
+    res.json(usuario);
+
+}
+
 Ctrl.vista_login = (req, res) => {
 
     (req.session._id != null) ? res.redirect("chat") : res.render("login.hbs");

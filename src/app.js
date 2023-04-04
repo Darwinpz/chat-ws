@@ -6,15 +6,31 @@ const path = require("path")
 const session = require('express-session');
 const nocache = require("nocache");
 
+const http = require('http');
+const { Server } = require("socket.io");
+
 //INSTANCIANDO EL SERVIDOR
 const app = express()
 
+//INSTANCIA DEL SOCKET
+const server = http.createServer(app);
+const io = new Server(server);
+
+io.on('connection', (socket) => {
+    //console.log('Un usuario se ha conectado!!', socket.handshake.address);
+
+    socket.on("usuario",(msg)=>{
+
+        socket.broadcast.emit("id",msg);
+    
+    })
+
+});
+
+
+
 //DEFINICION DE PUERTO
 app.set("port",3000)
-
-//SOCKETS
-//require("./controllers/sockets")(io_server);
-
 
 //SESION
 var sess = {
@@ -56,4 +72,4 @@ require("./routes/rutas")(app);
 require("./database/mongodb")
 
 //EXPORTACION DE MODULO APP
-module.exports = app;
+module.exports = {server,app};
