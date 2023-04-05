@@ -6,9 +6,11 @@ Ctrl.vista_chat = async (req, res) => {
 
     if (req.session._id != null) {
 
-        const user = await Usuario.findOne({ '_id': req.session._id })
+        const usuario = await Usuario.findOne({ '_id': req.session._id }).lean()
 
-        res.render("chat.hbs", user )
+        const registrados = await Usuario.find({"_id":{$nin: req.session._id}}).select("-clave -creacion").lean();
+
+        res.render("chat.hbs", {usuario, registrados} )
 
     } else {
         res.redirect("/login");

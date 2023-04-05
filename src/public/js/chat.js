@@ -2,22 +2,22 @@ var socket = io();
 
 var id = document.getElementById("usuario-id").innerText
 
-socket.emit("usuario",id);
+socket.emit("usuario", id);
 
-socket.on("id", function(id){
+socket.on("id", function (id) {
 
-    console.log(id); //64277d172e7f7b278ac93d47
+    var u = document.getElementById(id);
+    var estatus = u.getElementsByClassName("usuario-status")[0];
+    estatus.children[0].style.color = "#5cb85c";
+    estatus.children[1].innerText = "Online";
 
-    $.ajax({
+})
 
-        url: '/buscar_usuario/',
-        type: 'POST',
-        data: {id}
+socket.on("id_disconect", function (id) {
 
-    }).done(function (user) {
-
-        console.log(user);
-
-    });
+    var u = document.getElementById(id);
+    var estatus = u.getElementsByClassName("usuario-status")[0];
+    estatus.children[0].style.color = "#525252";
+    estatus.children[1].innerText = "Ofline";
 
 })

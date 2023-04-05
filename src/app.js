@@ -21,12 +21,19 @@ io.on('connection', (socket) => {
 
     socket.on("usuario",(msg)=>{
 
+        //ACTUALIZACIÓN DE LA BD CON EL ESTADO TRUE
         socket.broadcast.emit("id",msg);
     
     })
 
-});
+    socket.on('disconnect', () =>{
 
+        console.log("Desconectado",socket.id)
+        //socket.broadcast.emit("id_disconect",socket.id);
+    
+    })
+
+});
 
 
 //DEFINICION DE PUERTO

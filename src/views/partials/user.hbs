@@ -1,23 +1,16 @@
-<div class="d-flex align-items-center resaltar" style="cursor: pointer;">
+<div class="d-flex align-items-center resaltar" id="{{_id}}" style="cursor: pointer;">
 
     <div class="user-pic" style="width: 50px;height: 50px;padding: 2px; margin-right: 15px;">
         <img class="img-fluid img-rounded" style=" height: 100%;width: 100%;" src="/img/user.png" alt="User picture">
     </div>
-    <div class="user-info">
-        <span class="user-name"
-            style="display: block; font-size: 14px;"><strong>{{nombre}}</strong>
+    <div class="usuario-info">
+        <span class="usuario-nombre" style="display: block; font-size: 14px;"><strong>{{nombre}}</strong> ({{username}})
         </span>
-        <p style="display: none;" id="user_id">{{user_id}}</p>
-        <span class="user-role" style="display: block; font-size: 12px;">{{role}}</span>
-        <span class="user-status"
-            style="display: block; margin-top: 4px;font-size: 11px;">
-            <i class="fa fa-circle" style="color: #5cb85c; margin-right: 4px;font-size: 11px;"></i>
-            <span>Online</span>
+        <span class="usuario-status" style="display: block; margin-top: 4px;font-size: 11px;">
+            <i class="fa fa-circle" style="color: #525252; margin-right: 4px;font-size: 11px;"></i>
+            <span>Offline</span>
         </span>
     </div>
-    
+
 </div>
-
-<link href="/css/chat.css" rel="stylesheet">
-
 <hr class="m-1">

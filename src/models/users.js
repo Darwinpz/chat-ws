@@ -5,6 +5,7 @@ const UserSchema = new mongoose.Schema({
     nombre:  { type: String, required: true },
     username: { type: String, required: true },
     clave:  { type: String, required: true },
+    estado: {type: Boolean, default: false},
     conexion:  { type: Date, default: Date.now },
     creacion: { type: Date, default: Date.now }
 });
